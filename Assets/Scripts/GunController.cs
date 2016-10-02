@@ -11,8 +11,11 @@ public class GunController: MonoBehaviour {
     public GameObject impact;
 
     public bool shooting;
-	// Use this for initialization
-	void Start () {
+
+    public ParticleSystem testImpact;
+
+    // Use this for initialization
+    void Start () {
         anim = GetComponentInChildren<Animator>();
         shooting = false;
         impact = (GameObject)Instantiate(impactPrefab);
@@ -32,8 +35,10 @@ public class GunController: MonoBehaviour {
 
     void FixedUpdate()
     {
-        if(shooting)
+        if (shooting)
         {
+            shooting = false;
+
             RaycastHit hit;
 
             //if (Physics.Raycast(transform.position,transform.forward,out hit,50f))
@@ -45,12 +50,12 @@ public class GunController: MonoBehaviour {
             //    Debug.DrawRay(transform.position, transform.forward, Color.green);
             //}
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if(Physics.Raycast(ray,out hit))
+            if (Physics.Raycast(ray, out hit))
             {
                 Debug.DrawLine(ray.origin, hit.point);
                 impact.transform.position = hit.point;
-                ParticleSystem ps = impact.GetComponent<ParticleSystem>();
-                //impact.GetComponent<ParticleSystem>().Play();
+                //ParticleSystem ps = impact.GetComponent<ParticleSystem>();
+                impact.GetComponent<ParticleSystem>().Play();
 
                 //if (!impact.GetComponent<ParticleSystem>().isPlaying)
                 //    impact.GetComponent<ParticleSystem>().Play();
@@ -62,7 +67,7 @@ public class GunController: MonoBehaviour {
 
                 //impact.SetActive(false);
                 //impact.SetActive(true);
-                Debug.Log(ps.isPlaying);
+                //Debug.Log(ps.isPlaying);
             }
         }
         shooting = false;
