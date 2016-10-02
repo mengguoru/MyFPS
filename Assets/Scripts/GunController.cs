@@ -41,33 +41,17 @@ public class GunController: MonoBehaviour {
 
             RaycastHit hit;
 
-            //if (Physics.Raycast(transform.position,transform.forward,out hit,50f))
-            //{
-            //    impact.transform.position = hit.point;
-            //    Debug.Log(transform.position);
-            //    //Debug.Log(hit.point);
-            //    impact.GetComponent<ParticleSystem>().Play();
-            //    Debug.DrawRay(transform.position, transform.forward, Color.green);
-            //}
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
                 Debug.DrawLine(ray.origin, hit.point);
+
+                //check if hit zombie
+                if ("Zombie" == hit.transform.tag)
+                    Destroy(hit.transform.gameObject);
+
                 impact.transform.position = hit.point;
-                //ParticleSystem ps = impact.GetComponent<ParticleSystem>();
                 impact.GetComponent<ParticleSystem>().Play();
-
-                //if (!impact.GetComponent<ParticleSystem>().isPlaying)
-                //    impact.GetComponent<ParticleSystem>().Play();
-
-                //Instantiate(impactPrefab, hit.point, Quaternion.identity);
-
-                //ps.Clear();
-                //ps.Play();
-
-                //impact.SetActive(false);
-                //impact.SetActive(true);
-                //Debug.Log(ps.isPlaying);
             }
         }
         shooting = false;
