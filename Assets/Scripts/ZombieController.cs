@@ -12,34 +12,24 @@ public class ZombieController : MonoBehaviour {
 
     public float blood;
 
+    public bool playerInRange;
+    public float timeBetweenAttack = 0.5f;
+    float timer;
+
 	// Use this for initialization
 	void Start () {
         //Debug.Log(transform.forward);
         anim = GetComponent<Animator>();
+        playerInRange = false;
+        timer = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        float dis = Vector3.Distance(transform.position, target.position);
-
-        if (safetyDis >= dis && dis >= dangerDis)
+        timer += Time.deltaTime;
+        if(playerInRange && timer >= timeBetweenAttack)
         {
-            //Debug.Log("danger");
-            Vector3 tmp = target.position - transform.position;
-            transform.forward = tmp;
-            //Debug.Log(transform.forward);
-            transform.Translate(transform.forward * walkSpeed * Time.deltaTime * -1);
-
-            anim.SetBool("attack", false);
-        }
-        else if(dis <= dangerDis)
-        {
-            Vector3 tmp = target.position - transform.position;
-            transform.forward = tmp;
-            //Debug.Log(transform.forward);
-            transform.Translate(transform.forward * runSpeed * Time.deltaTime * -1);
-
-            anim.SetBool("attack", true);
+            anim.SetBool("attack", true);   
         }
 
         //Vector3 targetDir = target.position - transform.position;
@@ -47,10 +37,64 @@ public class ZombieController : MonoBehaviour {
         //Debug.Log(angle);
 
         if (blood <= 0)
-            Destroy(this.gameObject);
+        {
+            //Destroy(this.gameObject);
+            anim.SetBool("dead", true);
+        }
+        else
+        {
+            float dis = Vector3.Distance(transform.position, target.position);
+
+            if (safetyDis >= dis && dis >= dangerDis)
+            {
+                //Debug.Log("danger");
+                Vector3 tmp = target.position - transform.position;
+                transform.forward = tmp;
+                //Debug.Log(transform.forward);
+                transform.Translate(transform.forward * walkSpeed * Time.deltaTime * -1);
+
+                anim.SetBool("attack", false);
+            }
+            else if (dis <= dangerDis)
+            {
+                Vector3 tmp = target.position - transform.position;
+                transform.forward = tmp;
+                //Debug.Log(transform.forward);
+                transform.Translate(transform.forward * runSpeed * Time.deltaTime * -1);
+
+                //anim.SetBool("attack", true);
+            }
+
+        }
     }
 
-    public void beShooted(string str)
+    //void OnCollisionEnter(Collision coll)
+    //{
+    //    if ("Player" == coll.transform.tag)
+    //        coll.transform.gameObject.SendMessage("beAttacked");
+    //}
+
+    void OnTriggerEnter(Collider other)
+    {
+        if ("Player" == other.transform.tag)
+        {
+            playerInRange = true;
+
+            if (playerInRange && timer >= timeBetweenAttack)
+            {
+                Debug.Log(other.transform.gameObject.tag);
+                other.transform.gameObject.SendMessage("beAttacked");
+            }
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if ("Player" == other.transform.tag)
+            playerInRange = false;
+    }
+
+    void beShooted(string str)
     {
         switch(str)
         {

@@ -55,7 +55,7 @@ public class GunController: MonoBehaviour {
                 //if ("Zombie" == hit.transform.tag)
                 //    Destroy(hit.transform.gameObject);
 
-                Debug.Log(hit.collider.transform.tag);
+                //Debug.Log(hit.collider.transform.tag);
                 if ("head" == hit.collider.transform.tag)
                 {
                     //Debug.Log("head");
