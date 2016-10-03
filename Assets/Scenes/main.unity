@@ -1146,7 +1146,7 @@ Prefab:
     - target: {fileID: 54000013801487042, guid: b54163f4df82333409488dde67da351e,
         type: 2}
       propertyPath: m_UseGravity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 54000013801487042, guid: b54163f4df82333409488dde67da351e,
         type: 2}

@@ -82,7 +82,7 @@ public class ZombieController : MonoBehaviour {
 
             if (playerInRange && timer >= timeBetweenAttack)
             {
-                Debug.Log(other.transform.gameObject.tag);
+                //Debug.Log(other.transform.gameObject.tag);
                 other.transform.gameObject.SendMessage("beAttacked");
             }
         }
