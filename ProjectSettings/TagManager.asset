@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Fire
   - Zombie
+  - head
+  - body
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - 
   - 
   - Gun
-  - 
+  - Zombie
   - 
   - 
   - 

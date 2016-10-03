@@ -46,14 +46,22 @@ public class GunController: MonoBehaviour {
             {
                 Debug.DrawLine(ray.origin, hit.point);
 
-                //check if hit zombie
-                if ("Zombie" == hit.transform.tag)
-                    Destroy(hit.transform.gameObject);
-
                 impact.transform.position = hit.point;
                 impact.GetComponent<ParticleSystem>().Play();
+
+                //handle the object hit
+
+                //check if hit zombie
+                //if ("Zombie" == hit.transform.tag)
+                //    Destroy(hit.transform.gameObject);
+                Debug.Log(hit.collider.transform.tag);
+                if ("head" == hit.collider.transform.tag)
+                {
+                    Debug.Log("head");
+                }
+                else if ("body" == hit.collider.transform.tag)
+                    Debug.Log("body");
             }
         }
-        shooting = false;
     }
 }
