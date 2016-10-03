@@ -45,6 +45,9 @@ public class ZombieController : MonoBehaviour {
         //Vector3 targetDir = target.position - transform.position;
         //float angle = Vector3.Angle(targetDir, transform.forward);
         //Debug.Log(angle);
+
+        if (blood <= 0)
+            Destroy(this.gameObject);
     }
 
     public void beShooted(string str)
@@ -58,6 +61,6 @@ public class ZombieController : MonoBehaviour {
                 blood -= 50;
                 break;
         }
-            
+        //Debug.Log(blood);
     }
 }
