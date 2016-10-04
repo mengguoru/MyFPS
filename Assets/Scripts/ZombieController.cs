@@ -80,6 +80,7 @@ public class ZombieController : MonoBehaviour {
             }else if(dis > safetyDis)
             {
                 this.GetComponent<NavMeshAgent>().destination = this.transform.position;
+                this.GetComponent<NavMeshAgent>().speed = 0;
             }
 
         }
