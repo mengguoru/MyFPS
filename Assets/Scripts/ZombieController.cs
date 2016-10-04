@@ -16,13 +16,17 @@ public class ZombieController : MonoBehaviour {
     public float timeBetweenAttack = 0.5f;
     float timer;
 
-	// Use this for initialization
-	void Start () {
+    public CharacterController controller;
+
+    // Use this for initialization
+    void Start () {
         //Debug.Log(transform.forward);
         anim = GetComponent<Animator>();
         playerInRange = false;
         timer = 0;
-	}
+
+        controller = GetComponent<CharacterController>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -51,7 +55,12 @@ public class ZombieController : MonoBehaviour {
                 Vector3 tmp = target.position - transform.position;
                 transform.forward = tmp;
                 //Debug.Log(transform.forward);
-                transform.Translate(transform.forward * walkSpeed * Time.deltaTime * -1);
+
+                //transform.Translate(transform.forward * walkSpeed * Time.deltaTime * -1);
+                //controller.Move(transform.forward * walkSpeed * Time.deltaTime);
+
+                this.GetComponent<NavMeshAgent>().destination = target.transform. position;
+                this.GetComponent<NavMeshAgent>().speed = walkSpeed;
 
                 anim.SetBool("attack", false);
             }
@@ -60,9 +69,17 @@ public class ZombieController : MonoBehaviour {
                 Vector3 tmp = target.position - transform.position;
                 transform.forward = tmp;
                 //Debug.Log(transform.forward);
-                transform.Translate(transform.forward * runSpeed * Time.deltaTime * -1);
 
-                //anim.SetBool("attack", true);
+                //transform.Translate(transform.forward * runSpeed * Time.deltaTime * -1);
+                //controller.SimpleMove(transform.forward * runSpeed * Time.deltaTime);
+
+                this.GetComponent<NavMeshAgent>().destination = target.transform.position;
+                this.GetComponent<NavMeshAgent>().speed = runSpeed;
+
+                anim.SetBool("attack", true);
+            }else if(dis > safetyDis)
+            {
+                this.GetComponent<NavMeshAgent>().destination = this.transform.position;
             }
 
         }
