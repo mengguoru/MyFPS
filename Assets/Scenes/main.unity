@@ -622,8 +622,6 @@ MonoBehaviour:
   dead: 0
   HUDHealthText: {fileID: 1523038517}
   healthSlider: {fileID: 983858829}
-  HUDbulletAmount: {fileID: 1193714521}
-  bulletAmount: 10
 --- !u!1 &417439495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,6 +1009,8 @@ MonoBehaviour:
   impact: {fileID: 0}
   shooting: 0
   testImpact: {fileID: 0}
+  bulletAmount: 10
+  HUDbulletAmount: {fileID: 1193714521}
 --- !u!114 &717122501
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GunController: MonoBehaviour {
 
@@ -13,6 +14,10 @@ public class GunController: MonoBehaviour {
     public bool shooting;
 
     public ParticleSystem testImpact;
+    public int bulletAmount;
+
+
+    public Text HUDbulletAmount;
 
     // Use this for initialization
     void Start () {
@@ -23,7 +28,7 @@ public class GunController: MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if(Input.GetButtonDown("Fire1"))
+	    if(Input.GetButtonDown("Fire1") && bulletAmount > 0)
         {
             muzzleFlash.Play();
             bulletOutFlash.Play();
@@ -31,13 +36,16 @@ public class GunController: MonoBehaviour {
 
             shooting = true;
         }
-	}
+
+        HUDbulletAmount.text = "*" + bulletAmount;
+    }
 
     void FixedUpdate()
     {
-        if (shooting)
+        if (shooting && bulletAmount >0)
         {
             shooting = false;
+            bulletAmount--;
 
             RaycastHit hit;
 

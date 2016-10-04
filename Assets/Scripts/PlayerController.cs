@@ -7,8 +7,6 @@ public class PlayerController : MonoBehaviour {
     public bool dead;
     public Text HUDHealthText;
     public Slider healthSlider;
-    public Text HUDbulletAmount;
-    public int bulletAmount;
 
 	// Use this for initialization
 	void Start () {
@@ -21,7 +19,6 @@ public class PlayerController : MonoBehaviour {
             dead = true;
         HUDHealthText.text = ""+(int)blood + "/100";
         healthSlider.value = (int)blood;
-        HUDbulletAmount.text = "*" + bulletAmount;
 	}
 
     void beAttacked()
