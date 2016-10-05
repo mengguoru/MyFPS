@@ -33,10 +33,10 @@ public class ZombieController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         timer += Time.deltaTime;
-        if(playerInRange && timer >= timeBetweenAttack)
-        {
-            anim.SetBool("attack", true);   
-        }
+        //if(playerInRange && timer >= timeBetweenAttack)
+        //{
+        //    anim.SetBool("attack", true);   
+        //}
 
         //Vector3 targetDir = target.position - transform.position;
         //float angle = Vector3.Angle(targetDir, transform.forward);
@@ -75,11 +75,19 @@ public class ZombieController : MonoBehaviour {
                 //transform.Translate(transform.forward * runSpeed * Time.deltaTime * -1);
                 //controller.SimpleMove(transform.forward * runSpeed * Time.deltaTime);
 
-                Debug.Log(dis);
+                //Debug.Log(dis);
                 if(dis <= shootestDis)
                 {
                     this.GetComponent<NavMeshAgent>().destination = this.transform.position;
                     this.GetComponent<NavMeshAgent>().speed = 0;
+
+                    // handle zombie attack to player
+                    if(timer >= timeBetweenAttack)
+                    {
+                        timer = 0;
+
+                        target.transform.parent.gameObject.SendMessage("beAttacked");
+                    }
                 }else
                 {
 
@@ -104,25 +112,25 @@ public class ZombieController : MonoBehaviour {
     //        coll.transform.gameObject.SendMessage("beAttacked");
     //}
 
-    void OnTriggerEnter(Collider other)
-    {
-        if ("Player" == other.transform.tag)
-        {
-            playerInRange = true;
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if ("Player" == other.transform.tag)
+    //    {
+    //        playerInRange = true;
 
-            if (playerInRange && timer >= timeBetweenAttack)
-            {
-                //Debug.Log(other.transform.gameObject.tag);
-                other.transform.gameObject.SendMessage("beAttacked");
-            }
-        }
-    }
+    //        if (playerInRange && timer >= timeBetweenAttack)
+    //        {
+    //            //Debug.Log(other.transform.gameObject.tag);
+    //            other.transform.gameObject.SendMessage("beAttacked");
+    //        }
+    //    }
+    //}
 
-    void OnTriggerExit(Collider other)
-    {
-        if ("Player" == other.transform.tag)
-            playerInRange = false;
-    }
+    //void OnTriggerExit(Collider other)
+    //{
+    //    if ("Player" == other.transform.tag)
+    //        playerInRange = false;
+    //}
 
     void beShooted(string str)
     {
