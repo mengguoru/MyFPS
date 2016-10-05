@@ -1363,6 +1363,16 @@ Prefab:
       propertyPath: shootestDis
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 136000012853031056, guid: df30a7c0796bc9349832b12aec3e50a9,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136000011345597390, guid: df30a7c0796bc9349832b12aec3e50a9,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 143000012993106886, guid: df30a7c0796bc9349832b12aec3e50a9, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: df30a7c0796bc9349832b12aec3e50a9, type: 2}
