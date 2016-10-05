@@ -18,16 +18,12 @@ public class ZombieController : MonoBehaviour {
 
     public float shootestDis;
 
-    public CharacterController controller;
-
     // Use this for initialization
     void Start () {
         //Debug.Log(transform.forward);
         anim = GetComponent<Animator>();
         playerInRange = false;
         timer = 0;
-
-        controller = GetComponent<CharacterController>();
     }
 	
 	// Update is called once per frame
@@ -46,6 +42,7 @@ public class ZombieController : MonoBehaviour {
         {
             //Destroy(this.gameObject);
             anim.SetBool("dead", true);
+            dead();
         }
         else
         {
@@ -144,5 +141,11 @@ public class ZombieController : MonoBehaviour {
                 break;
         }
         //Debug.Log(blood);
+    }
+
+    void dead()
+    {
+        this.GetComponent<NavMeshAgent>().enabled = false;
+        this.enabled = false;
     }
 }
