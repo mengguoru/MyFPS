@@ -992,6 +992,7 @@ MonoBehaviour:
   shooting: 0
   testImpact: {fileID: 0}
   bulletAmount: 10
+  maxbBulletAmount: 0
   HUDbulletAmount: {fileID: 1193714521}
 --- !u!114 &717122501
 MonoBehaviour:
@@ -1354,54 +1355,9 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 1339752493}
-    - target: {fileID: 1000013787583258, guid: df30a7c0796bc9349832b12aec3e50a9, type: 2}
-      propertyPath: m_Name
-      value: Zombie
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011386515394, guid: df30a7c0796bc9349832b12aec3e50a9,
-        type: 2}
-      propertyPath: shootestDis
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 136000012853031056, guid: df30a7c0796bc9349832b12aec3e50a9,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 136000011345597390, guid: df30a7c0796bc9349832b12aec3e50a9,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 143000012993106886, guid: df30a7c0796bc9349832b12aec3e50a9, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df30a7c0796bc9349832b12aec3e50a9, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1107511307 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000013787583258, guid: df30a7c0796bc9349832b12aec3e50a9,
-    type: 2}
-  m_PrefabInternal: {fileID: 1107511306}
---- !u!195 &1107511308
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1107511307}
-  m_Enabled: 1
-  m_Radius: 0.36
-  m_Speed: 1.38
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1.73
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &1112296747
 GameObject:
   m_ObjectHideFlags: 0
@@ -1625,7 +1581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1645,7 +1601,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'bullet
+
+'
 --- !u!222 &1193714522
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2250,7 +2208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.9852941, g: 0.9273356, b: 0.9273356, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

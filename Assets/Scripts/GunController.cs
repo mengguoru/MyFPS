@@ -15,6 +15,7 @@ public class GunController: MonoBehaviour {
 
     public ParticleSystem testImpact;
     public int bulletAmount;
+    public int maxbBulletAmount;
 
 
     public Text HUDbulletAmount;
@@ -24,6 +25,7 @@ public class GunController: MonoBehaviour {
         anim = GetComponentInChildren<Animator>();
         shooting = false;
         impact = (GameObject)Instantiate(impactPrefab);
+        maxbBulletAmount = bulletAmount;
     }
 	
 	// Update is called once per frame
@@ -37,7 +39,7 @@ public class GunController: MonoBehaviour {
             shooting = true;
         }
 
-        HUDbulletAmount.text = "*" + bulletAmount;
+        HUDbulletAmount.text = bulletAmount + "/" + maxbBulletAmount;
     }
 
     void FixedUpdate()
