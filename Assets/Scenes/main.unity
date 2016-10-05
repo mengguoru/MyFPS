@@ -374,7 +374,7 @@ Transform:
   m_Children:
   - {fileID: 1084004166}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 5
 --- !u!1 &633407423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1152,7 +1152,7 @@ Transform:
   m_Children:
   - {fileID: 1332114780}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
 --- !u!1 &1511576987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1555,7 +1555,7 @@ RectTransform:
   - {fileID: 2142380652}
   - {fileID: 1511576991}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
