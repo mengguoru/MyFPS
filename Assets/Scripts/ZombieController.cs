@@ -16,6 +16,8 @@ public class ZombieController : MonoBehaviour {
     public float timeBetweenAttack = 0.5f;
     float timer;
 
+    public float shootestDis;
+
     public CharacterController controller;
 
     // Use this for initialization
@@ -73,8 +75,18 @@ public class ZombieController : MonoBehaviour {
                 //transform.Translate(transform.forward * runSpeed * Time.deltaTime * -1);
                 //controller.SimpleMove(transform.forward * runSpeed * Time.deltaTime);
 
-                this.GetComponent<NavMeshAgent>().destination = target.transform.position;
-                this.GetComponent<NavMeshAgent>().speed = runSpeed;
+                Debug.Log(dis);
+                if(dis <= shootestDis)
+                {
+                    this.GetComponent<NavMeshAgent>().destination = this.transform.position;
+                    this.GetComponent<NavMeshAgent>().speed = 0;
+                }else
+                {
+
+                    this.GetComponent<NavMeshAgent>().destination = target.transform.position;
+                    this.GetComponent<NavMeshAgent>().speed = runSpeed;
+
+                }
 
                 anim.SetBool("attack", true);
             }else if(dis > safetyDis)
