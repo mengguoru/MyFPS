@@ -146,6 +146,8 @@ public class ZombieController : MonoBehaviour {
     void dead()
     {
         this.GetComponent<NavMeshAgent>().enabled = false;
+        this.GetComponent<Collider>().enabled = false;
         this.enabled = false;
+
     }
 }
