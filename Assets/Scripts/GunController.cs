@@ -6,7 +6,7 @@ public class GunController: MonoBehaviour {
 
     public ParticleSystem muzzleFlash;
     public ParticleSystem bulletOutFlash;
-    public Animator anim;
+    Animator anim;
     public GameObject impactPrefab;
 
     public GameObject impact;

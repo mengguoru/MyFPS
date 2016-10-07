@@ -22,9 +22,10 @@ GameObject:
   - 33: {fileID: 33000013187413956}
   - 23: {fileID: 23000013793028334}
   - 95: {fileID: 95000011124480200}
+  - 114: {fileID: 114000010331702024}
   m_Layer: 12
   m_Name: Pistol
-  m_TagString: Untagged
+  m_TagString: Guns
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -268,6 +269,25 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000010331702024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010277774538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67cf72e627b17454c90702671bbdb6d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  muzzleFlash: {fileID: 198000014260013628}
+  bulletOutFlash: {fileID: 198000013379733216}
+  impactPrefab: {fileID: 1000013525553742}
+  impact: {fileID: 0}
+  shooting: 0
+  bulletAmount: 10
+  maxbBulletAmount: 0
+  HUDbulletAmount: {fileID: 0}
 --- !u!198 &198000013379733216
 ParticleSystem:
   m_ObjectHideFlags: 1
