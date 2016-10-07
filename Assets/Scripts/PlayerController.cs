@@ -39,20 +39,24 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Z))
         {
             //Debug.Log("Z");
-            myItems[currentObjectIndex].SetActive(true);
             crosshair.SetActive(true);
 
+            myItems[0].SetActive(true);
             myItems[1].SetActive(false);
+            myItems[2].SetActive(false);
         }
         else if ((Input.GetKeyDown(KeyCode.X)))
         {
-            myItems[currentObjectIndex].SetActive(false);
             crosshair.SetActive(false);
 
+            myItems[0].SetActive(false);
             myItems[1].SetActive(true);
+            myItems[2].SetActive(false);
         }
         else if ((Input.GetKeyDown(KeyCode.C)))
         {
+            crosshair.SetActive(true);
+
             myItems[0].SetActive(false);
             myItems[1].SetActive(false);
             myItems[2].SetActive(true);
