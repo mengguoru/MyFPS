@@ -68,4 +68,11 @@ public class PlayerController : MonoBehaviour {
     {
         blood -= 10;
     }
+
+    void addBlood()
+    {
+        blood += 70;
+        if (blood > 100)
+            blood = 100;
+    }
 }
