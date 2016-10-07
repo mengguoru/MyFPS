@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour {
         //myItems.
         currentObjectIndex = 0;
         ItemIcons[currentObjectIndex].sprite = myItems[currentObjectIndex].GetComponent<ItemInformation>().myIcon;
-	}
+        ItemIcons[1].sprite = myItems[1].GetComponent<ItemInformation>().myIcon;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -30,13 +31,21 @@ public class PlayerController : MonoBehaviour {
         HUDHealthText.text = ""+(int)blood + "/100";
         healthSlider.value = (int)blood;
 
+        //Z:0 X:1
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            Debug.Log("Z");
-        }else if ((Input.GetKeyDown(KeyCode.X)))
+            //Debug.Log("Z");
+            myItems[currentObjectIndex].SetActive(true);
+            crosshair.SetActive(true);
+
+            myItems[1].SetActive(false);
+        }
+        else if ((Input.GetKeyDown(KeyCode.X)))
         {
             myItems[currentObjectIndex].SetActive(false);
             crosshair.SetActive(false);
+
+            myItems[1].SetActive(true);
         }
 	}
 

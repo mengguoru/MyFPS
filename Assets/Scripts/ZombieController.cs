@@ -143,6 +143,11 @@ public class ZombieController : MonoBehaviour {
         //Debug.Log(blood);
     }
 
+    void beBrokenBottleAttack()
+    {
+        blood -= 40;
+    }
+
     void dead()
     {
         this.GetComponent<NavMeshAgent>().enabled = false;
