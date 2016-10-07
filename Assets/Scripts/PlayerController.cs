@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
     public Text HUDHealthText;
     public Slider healthSlider;
 
+    public GameObject[] myItems;
+
 	// Use this for initialization
 	void Start () {
         dead = false;

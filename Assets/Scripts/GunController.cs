@@ -12,8 +12,7 @@ public class GunController: MonoBehaviour {
     public GameObject impact;
 
     public bool shooting;
-
-    public ParticleSystem testImpact;
+    
     public int bulletAmount;
     public int maxbBulletAmount;
 
