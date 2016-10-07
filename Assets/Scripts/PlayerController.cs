@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour {
     public float blood;
@@ -12,11 +13,14 @@ public class PlayerController : MonoBehaviour {
     public int currentObjectIndex;
     public GameObject crosshair;
 
+    public List<Image> ItemIcons;
+
 	// Use this for initialization
 	void Start () {
         dead = false;
         //myItems.
         currentObjectIndex = 0;
+        ItemIcons[currentObjectIndex].sprite = myItems[currentObjectIndex].GetComponent<ItemInformation>().myIcon;
 	}
 	
 	// Update is called once per frame

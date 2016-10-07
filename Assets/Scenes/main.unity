@@ -1666,6 +1666,12 @@ MonoBehaviour:
   - {fileID: 1654628306}
   currentObjectIndex: 0
   crosshair: {fileID: 2047375166}
+  ItemIcons:
+  - {fileID: 1573015379}
+  - {fileID: 1387970411}
+  - {fileID: 2022892513}
+  - {fileID: 2095985378}
+  - {fileID: 568404631}
 --- !u!82 &1554971410
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2001,6 +2007,18 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000010277774538, guid: 0dc1793a8d6a0884596a95a7df74be17,
     type: 2}
   m_PrefabInternal: {fileID: 1417873311}
+--- !u!114 &1654628307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1654628306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f539517b2f945b747bccd077fefe8a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myIcon: {fileID: 21300000, guid: 17734991d577c0e418847820ec7b310d, type: 3}
 --- !u!1001 &1797190009
 Prefab:
   m_ObjectHideFlags: 0
