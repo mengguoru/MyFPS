@@ -20,8 +20,12 @@ public class PlayerController : MonoBehaviour {
         dead = false;
         //myItems.
         currentObjectIndex = 0;
-        ItemIcons[currentObjectIndex].sprite = myItems[currentObjectIndex].GetComponent<ItemInformation>().myIcon;
-        ItemIcons[1].sprite = myItems[1].GetComponent<ItemInformation>().myIcon;
+        //ItemIcons[currentObjectIndex].sprite = myItems[currentObjectIndex].GetComponent<ItemInformation>().myIcon;
+        //ItemIcons[1].sprite = myItems[1].GetComponent<ItemInformation>().myIcon;
+        for(int i = 0; i < 3; ++i)
+        {
+            ItemIcons[i].sprite = myItems[i].GetComponent<ItemInformation>().myIcon;
+        }
     }
 	
 	// Update is called once per frame
@@ -47,7 +51,14 @@ public class PlayerController : MonoBehaviour {
 
             myItems[1].SetActive(true);
         }
-	}
+        else if ((Input.GetKeyDown(KeyCode.C)))
+        {
+            myItems[0].SetActive(false);
+            myItems[1].SetActive(false);
+            myItems[2].SetActive(true);
+        }
+
+    }
 
     void beAttacked()
     {
